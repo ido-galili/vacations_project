@@ -1,0 +1,454 @@
+// ========================
+//      Table of Contents
+//  - General
+//  - Permanents
+//    .TopNav
+//    .Footer
+//  - Auth
+//  - Home
+//  - Login
+//  - Registration
+// ========================
+// ===================
+//      Imports
+// ===================
+@import "_mixins";
+@import "_theme";
+
+// ===================
+//      General
+// ===================
+
+// Text Selection - Entire App
+::-moz-selection {
+  background: $light;
+}
+
+::selection {
+  background: $light;
+}
+
+html, body {
+  font-size: 18px;
+  font-family: 'Overlock', cursive;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: $light;
+  margin: 0 auto;
+  //background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80'%3E%3Cpath fill='%2327ae60' fill-opacity='1' d='M14 16H9v-2h5V9.87a4 4 0 1 1 2 0V14h5v2h-5v15.95A10 10 0 0 0 23.66 27l-3.46-2 8.2-2.2-2.9 5a12 12 0 0 1-21 0l-2.89-5 8.2 2.2-3.47 2A10 10 0 0 0 14 31.95V16zm40 40h-5v-2h5v-4.13a4 4 0 1 1 2 0V54h5v2h-5v15.95A10 10 0 0 0 63.66 67l-3.47-2 8.2-2.2-2.88 5a12 12 0 0 1-21.02 0l-2.88-5 8.2 2.2-3.47 2A10 10 0 0 0 54 71.95V56zm-39 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm40-40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM15 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm40 40a2 2 0 1 0 0-4 2 2 0 0 0 0 4z'%3E%3C/path%3E%3C/svg%3E");
+  //background-image: url('../../assets/img/asteroids.jpg');
+  //background-repeat: repeat;
+  height: 100vh;
+
+  @include respond-below(xl) {
+    font-size: 18px;
+  }
+
+  @include respond-below(lg) {
+    font-size: 17px;
+  }
+
+  @include respond-below(md) {
+    font-size: 15px;
+  }
+
+  @include respond-below(sm) {
+    font-size: 14px;
+  }
+
+  @include respond-below(xs) {
+    font-size: 13px;
+  }
+
+  @include respond-below(xxs) {
+    font-size: 12px;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px $dark;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $danger;
+  outline: 1px solid $danger;
+}
+
+main {
+  margin-bottom: $footer-height;
+}
+
+.button {
+  width: 200px;
+  //  height: 50px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  //  font-size: 1.5rem;
+
+}
+
+
+// ===================
+//      Permanents
+// ===================
+
+.top-nav-container {
+  max-width: $screen-max-width;
+  position: fixed;
+  height: $navbar-height;
+  width: 100vw;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.85);
+  box-shadow: 0 0 16px -4px $danger;
+  border-bottom: 2px solid $danger;
+  top: 0;
+
+  .top-nav {
+    //max-width: $main-max-width;
+    min-width: $main-min-width;
+    height: 100%;
+    //margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3%;
+
+    .top-nav__left-actions {
+      .top-nav__brand {
+        font-family: 'Monoton', cursive;
+        font-size: 30px;
+        letter-spacing: 2px;
+        word-spacing: 5px;
+        color: $warning;
+        background: -webkit-linear-gradient(left, $secondary, $success, $danger, $warning, $yellow);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        cursor: pointer;
+      }
+    }
+
+    .top-nav__center-actions {
+
+    }
+
+    .top-nav__right-actions {
+      display: flex;
+      justify-content: space-evenly;
+      width: 200px;
+
+      .top-nav__user-icon {
+        color: $info;
+        cursor: pointer;
+        transition: 200ms;
+
+        &:hover {
+          color: $danger;
+        }
+      }
+
+      .top-nav__plus-icon {
+        color: $info;
+        cursor: pointer;
+        transition: 200ms;
+
+        &:hover {
+          color: $light;
+        }
+      }
+
+      .top-nav__chart-icon {
+        color: $info;
+        cursor: pointer;
+        transition: 200ms;
+
+        &:hover {
+          color: $light;
+        }
+      }
+
+      .top-nav__user-dropdown {
+        background-color: $light;
+        position: absolute;
+        top: $navbar-height;
+        right: 10px;
+        width: 200px;
+        padding-top: $navbar-height;
+
+        .top-nav__user-dropdown-item {
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $footer-height;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  max-width: $screen-max-width;
+  background-color: #FFF;
+  color: $dark;
+  box-shadow: 0 0 16px -4px $danger;
+  border-top: 2px solid $danger;
+
+}
+
+// ===================
+//      Auth
+// ===================
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+
+  i {
+    transition: color 200ms;
+  }
+
+  &:hover i {
+    color: $dark;
+  }
+}
+
+.auth-page {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: calc(100vh - #{$footer-height});
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 7%;
+
+  .auth-content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    border: 2px solid $danger;
+    border-radius: 10px;
+    box-shadow: 0 0 16px -4px $danger;
+    transition: 300ms;
+    margin: 0 5%;
+    position: relative;
+    //width: 852px;
+    //height: 504px;
+
+    //@include keep-ratio(504px, 600px);
+
+    @include respond-above(sm) {
+      @include keep-ratio(852px, 504px);
+    }
+
+    .auth-content {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+// ===================
+//       Landing
+// ===================
+
+.landing-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .landing-headline {
+    font-family: 'Monoton', cursive;
+    font-size: 6.5rem;
+    letter-spacing: 5px;
+    word-spacing: 50px;
+    line-height: 130px;
+    background: -webkit-linear-gradient(left, $secondary, $success, $danger, $warning, $yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: pre;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .buttons {
+    display: flex;
+
+    .button:first-child {
+      margin-right: 2.5rem !important;
+    }
+  }
+}
+
+// ==========================
+//     Registration & Login
+// ==========================
+
+.auth-form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 6%;
+
+  .auth-form-headline {
+    color: $primary;
+    font-size: 2rem;
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+// ===================
+//     FormGenerator
+// ===================
+
+.form-generator {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+
+// ===================
+//        Home
+// ===================
+
+.home {
+  margin: $navbar-height auto 0;
+  padding: 30px 5%;
+  width: 100%;
+  height: 100%;
+}
+
+// ===================
+//        Chart
+// ===================
+
+.chart {
+  margin: $navbar-height auto 0;
+  //padding: 30px 5%;
+  width: 70%;
+  height: 100%;
+}
+
+
+
+// ===================
+//      Vacations
+// ===================
+.vacations {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.vacation-card {
+  width: 350px;
+  margin: 10px;
+  border-color: red;
+  order: 2;
+
+  .follow-icon {
+    color: $danger;
+  }
+
+  .follow-number {
+    font-size: 18px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+  }
+
+  .trash-icon {
+    color: $danger;
+
+    &:hover {
+      color: $dark;
+    }
+  }
+
+  .edit-icon {
+    color: $info;
+
+    &:hover {
+      color: $dark;
+    }
+  }
+
+  .vacation-icon {
+    cursor:pointer;
+  }
+
+  &.followed {
+    order: 1
+  }
+}
+
+// ===================
+//      Vacations
+// ===================
+
+.vacation-form {
+  position: absolute;
+  height: 100vh;
+  width: 500px;
+  padding: calc(#{$navbar-height} + 10px) 20px 50px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: 400ms;
+  z-index: 5;
+  background-color: $dark;
+
+  .vacation-form-headline {
+    font-size: 1.5rem;
+    color: $info;
+  }
+
+  .close-btn {
+    color: $danger;
+    cursor: pointer;
+
+    &:hover {
+      color: $light;
+    }
+  }
+}
+

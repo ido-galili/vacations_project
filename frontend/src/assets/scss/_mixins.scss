@@ -1,0 +1,80 @@
+//Responsive Breakpoints
+$breakpoints: (
+        xxs: 460px,
+        xs: 576px,
+        sm: 768px,
+        md: 1024px,
+        lg: 1216px,
+        xl: 1408px,
+);
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin respond-below($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get(
+                    $breakpoints,
+                    $breakpoint
+    ); // Write the media query.
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn "Invalid breakpoint: #{$breakpoint}.";
+  }
+}
+
+@mixin keep-ratio($width, $height) {
+  &::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: $height / $width * 100%;
+  }
+
+  &::after { /* to clear float */
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin respond-above($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get(
+                    $breakpoints,
+                    $breakpoint
+    ); // Write the media query.
+    @media (min-width: ($breakpoint-value)) {
+      @content;
+    }
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn "Invalid breakpoint: #{$breakpoint}.";
+  }
+}
+
+@mixin test-border($color) {
+  box-sizing: border-box;
+  border: 1px solid $color;
+
+  * {
+    box-sizing: border-box;
+    border: 1px solid $color;
+  }
+}

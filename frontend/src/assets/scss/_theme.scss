@@ -1,0 +1,78 @@
+// ========================
+//      Table of Contents
+//  - Fonts
+//  - Colors
+//  - Dimensions
+//  - Animations & Transition Constants
+// ========================
+
+// ===================
+//      Fonts
+// ===================
+
+@import url('https://fonts.googleapis.com/css?family=Monoton|Overlock:400,700,900|Righteous&display=swap');
+
+//font-family: 'Righteous', cursive; Headlines
+//font-family: 'Monoton', cursive; Landing Page
+//font-family: 'Overlock', cursive; Text
+
+// ===================
+//      Colors
+// ===================
+
+$primary: hsl(171, 100%, 41%);
+$secondary: #9b59b6;
+$muted: #bdc3c7;
+$success: hsl(141, 71%, 48%);
+$danger: hsl(348, 100%, 61%);
+$warning: hsl(48, 100%, 67%);
+$info: hsl(204, 86%, 53%);
+$link: hsl(217, 71%, 53%);
+$dark: hsl(0, 0%, 21%);
+$light: hsl(0, 0%, 96%);
+$yellow: #f1c40f;
+$orange: #e67e22;
+$black: hsl(0, 0%, 4%);
+$white: hsl(0, 0%, 100%);
+
+// Alerts
+
+.error-background {
+  background-color: $danger;
+}
+
+.warning-background {
+  background-color: $orange;
+}
+
+.info-background {
+  background-color: $info;
+}
+
+.success-background {
+  background-color: $success;
+}
+
+.default-background {
+  background-color: $dark;
+}
+
+  // ===================
+//      Dimensions
+// ===================
+
+$main-max-width: 1400px;
+$main-min-width: 168px;
+$screen-max-width: 1920px;
+
+$navbar-height: 80px;
+$navbar-height-sm: 60px;
+$navbar-height-on-scroll: 60px;
+$navbar-height-on-scroll-sm: 40px;
+$navbar-padding-xl: 0 0.5rem;
+
+$footer-height: 60px;
+
+// =====================================
+//    Animations & Transition Constants
+// =====================================
